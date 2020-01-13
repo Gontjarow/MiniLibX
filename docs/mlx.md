@@ -43,4 +43,5 @@ A connection between these two entities must be established.
 
 ### Author
 Copyright ol@ - 2002-2015 - Olivier Crouzet
+
 Re-format and spelling corrections by Gontjarow
