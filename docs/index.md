@@ -8,8 +8,9 @@ Recommended watching: "Introduction to MinilibX" and "Introduction to events" on
 ### Manual pages
 - [MLX main](mlx.md)
 - [MLX manage windows](mlx_new_window.md)
+- [MLX event handlers](mlx_loop.md)
 - [MLX draw pixel & string](mlx_pixel_put.md)
-- [MLX manage images](mlx_new_image.md)
+- [MLX manipulate images](mlx_new_image.md)
 
 ### Tutorials (WIP)
 1. [How to create a window](mlx-tutorial-create-window.md)
