@@ -1,4 +1,4 @@
-### How to draw a line on the screen with MLX?
+### How to draw a line on the window with MLX?
 Continuing from the previous [tutorial](mlx-tutorial-draw-pixel.md), this can get a bit more complicated.
 
 First things first, let's define some properties of a line and what we need to draw it.
