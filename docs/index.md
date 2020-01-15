@@ -19,3 +19,10 @@ Recommended watching: "Introduction to MinilibX" and "Introduction to events" on
 4. [How to draw a box or square](mlx-tutorial-draw-box-square.md)
 5. [How to draw a circle or oval](mlx-tutorial-draw-circle-oval.md)
 6. [How to use images](mlx-tutorial-images.md)
+
+### Supplementary project-material
+#### Fractals
+https://youtu.be/FFftmWSzgmk
+https://youtu.be/MwjsO6aniig
+http://warp.povusers.org/Mandelbrot/
+https://lodev.org/cgtutor/juliamandelbrot.html
