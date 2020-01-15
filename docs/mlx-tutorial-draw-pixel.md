@@ -1,4 +1,4 @@
-### How to draw a pixel on the screen with MLX?
+### How to draw a pixel on the window with MLX?
 Continuing from the previous [tutorial](mlx-tutorial-create-window.md), drawing a single pixel is very straight-forward.
 ```
 #include "mlx.h"
