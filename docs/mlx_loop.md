@@ -75,7 +75,7 @@ int mouse_move(int x, int y, void *param);
 ```
 Close button: `x_event = 17`, the function will be called like this:
 ```
-int close_program(void *param);
+int close_window(void *param);
 ```
 And more, but these are by far the most useful for early projects.
 
