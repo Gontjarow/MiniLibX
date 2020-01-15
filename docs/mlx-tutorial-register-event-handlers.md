@@ -2,7 +2,7 @@
 
 An "event" is some kind of function being called (or triggered) by some action.
 
-For example, clicking your mouse would cause an event. If there is no function (or handler) registered for the mouse event, nothing will happen. So, how would you do something when a mouse is clicked?
+For example, clicking your mouse is an action that would cause an event. If there is no function (or handler) registered for the mouse event, nothing will happen. So, how would you do something when a mouse is clicked?
 
 From the [loop_hook manual page](mlx_loop_hook), we know that `mlx_mouse_hook` can be used to register an event handler for the mouse, and we know how the event handler will be called.
 ```
