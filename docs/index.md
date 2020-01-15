@@ -1,4 +1,3 @@
-## Short introduction to MiniLibX
 ### What is it?
 A small library which implements some basic functions that allow you to quickly open a window and to draw within it.
 
@@ -12,7 +11,7 @@ Recommended watching: "Introduction to MinilibX" and "Introduction to events" on
 - [MLX draw pixel & string](mlx_pixel_put.md)
 - [MLX manage images](mlx_new_image.md)
 
-### Tutorials
+### Tutorials (WIP)
 1. [How to create a window](mlx-tutorial-create-window.md)
 2. [How to draw a pixel on the screen](mlx-tutorial-draw-pixel.md)
 3. [How to draw a line](mlx-tutorial-draw-line.md)
