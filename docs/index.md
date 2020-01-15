@@ -5,6 +5,15 @@ More specifically, it's an abstraction of the "X Window System" for Unix platfor
 
 Recommended watching: "Introduction to MinilibX" and "Introduction to events" on the school intra.
 
+### What is this?
+This is an introductory set of information to get any 42 students started with graphics programming. The manual pages are quite vague, so I want to provide a little kickstart to anyone who finds this page.
+
+These won't be perfect tutorials, though. The code provided here will be clean to read (as far as the important parts go), but it will not conform to Norminette. The algorithms/solutions given here won't always be optimal, but "correct enough" to get anybody started enjoying graphics programming.
+
+There's also no guarantee that the information provided here is 100% correct. I make mistakes too.
+
+**It is still your job to think about the problems and improve from your starting point.**
+
 ### Manual pages
 - [MLX main](mlx.md)
 - [MLX manage windows](mlx_new_window.md)
