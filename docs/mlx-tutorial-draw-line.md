@@ -11,7 +11,7 @@ So we could create a function something along the lines of:
 ```
 int draw_line(void *mlx, void *win, int beginX, int beginY, int endX, int endY, int color);
 
-draw_line(mlx, win, 10, 10, 20, 10); // This should create a horizontal line about 10 pixels long.
+draw_line(mlx, win, 10, 10, 20, 10, 0xFFFFFF); // This should create a white horizontal line about 10 pixels long.
 ```
 To get the direction of the line in 2D space, you can `end - begin`:
 ```
@@ -44,7 +44,7 @@ while (pixels)
 }
 ```
 
-And if you did everything correctly, you should be able to draw a line from any point and any angle.
+And if you did everything correctly, you should be able to draw a line from any point and any angle. However, this method could and should be polished to increase accuracy and getting cleaner lines.
 ```
 int main()
 {
