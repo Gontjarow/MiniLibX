@@ -7,7 +7,10 @@ More specifically, it's an abstraction of the "X Window System" for Unix platfor
 Recommended watching: "Introduction to MinilibX" and "Introduction to events" on the school intra.
 
 ### Manual pages
-WIP
+- [MLX main](mlx.md)
+- [MLX manage windows](mlx_new_window.md)
+- [MLX draw pixel & string](mlx_pixel_put.md)
+- [MLX manage images](mlx_new_image.md)
 
 ### Tutorials
 1. [How to create a window](mlx-tutorial-create-window.md)
