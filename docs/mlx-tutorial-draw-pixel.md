@@ -22,7 +22,7 @@ The main takeaway from this is how the color is determined by MLX. The man page 
 Hex RR GG BB
 ```
 
-To make any sense of colors in this format, you'll need to wrap your head around hexadecimal (base 16) numbers. Here's a [very good resource](https://www.mathsisfun.com/hexadecimal-decimal-colors.html) to get yourself started.
+To make any sense of colors in this format, you'll need to wrap your head around hexadecimal (base 16) numbers. Here's a [very good resource](https://www.mathsisfun.com/hexadecimal-decimal-colors.html) to get yourself started. [This](https://www.mathsisfun.com/binary-decimal-hexadecimal-converter.html) will also help you!
 
 I would also strongly recommend creating yourself a function such as `rgb_to_int` so that you can easily create the colors you need.
 ```
