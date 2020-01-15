@@ -23,6 +23,9 @@ Recommended watching: "Introduction to MinilibX" and "Introduction to events" on
 ### Supplementary project-material
 #### Fractals
 https://youtu.be/FFftmWSzgmk
+
 https://youtu.be/MwjsO6aniig
+
 http://warp.povusers.org/Mandelbrot/
+
 https://lodev.org/cgtutor/juliamandelbrot.html
