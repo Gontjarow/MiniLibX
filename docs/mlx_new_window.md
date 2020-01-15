@@ -1,10 +1,10 @@
 ### Synopsis
 ```
-void *mlx_new_window(void *mlx_ptr, int size_x, int size_y, char *title);
+void  * mlx_new_window(void *mlx_ptr, int size_x, int size_y, char *title);
 
-int mlx_clear_window(void *mlx_ptr, void *win_ptr);
+int     mlx_clear_window(void *mlx_ptr, void *win_ptr);
 
-int mlx_destroy_window(void *mlx_ptr, void *win_ptr);
+int     mlx_destroy_window(void *mlx_ptr, void *win_ptr);
 ```
 
 ### Description
