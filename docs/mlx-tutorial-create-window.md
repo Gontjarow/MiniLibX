@@ -47,4 +47,4 @@ int main()
 ```
 When you compile and run this, you'll end up with a small window that does absolutely nothing. Congratulations!
 
-![MLX tutorial window](images/tutorial-window)
+![MLX tutorial window](images/tutorial-window.png)
