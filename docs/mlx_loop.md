@@ -19,7 +19,7 @@ On one hand, the program sends orders to the screen to display pixels, images, a
 On the other hand, it can get information from the keyboard and mouse associated to the screen. To do so, the program receives "events" from the keyboard or the mouse.
 
 ### Description
-To receive events, you must use `mlx_loop`. This function never returns. It is an infinite loop that waits for an event, and then calls a user-defined function associated with this event. A single parameter is needed, the connection identifier mlx_ptr (see the [mlx manual](mlx.md)).
+To receive events, you must use `mlx_loop`. This function never returns. It is an infinite loop that waits for an event, and then calls a user-defined function associated with this event. A single parameter is needed, the connection identifier mlx_ptr (see the [mlx man page](mlx.md)).
 
 You can assign different functions to the three following events:
 - A key is pressed
