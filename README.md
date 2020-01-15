@@ -1,2 +1,2 @@
 # MiniLibX.github.io
-Basic introduction, tutorials, tips &amp; tricks.
+A little extra something.
