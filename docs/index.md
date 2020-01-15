@@ -28,6 +28,8 @@ There's also no guarantee that the information provided here is 100% correct. I 
 4. [How to draw a box or square](mlx-tutorial-draw-box-square.md)
 5. [How to draw a circle or oval](mlx-tutorial-draw-circle-oval.md)
 6. [How to use images](mlx-tutorial-images.md)
+7. [How to register event handlers](mlx-tutorial-register-event-handlers.md)
+8. [How to use event param](mlx-tutorial-event-param.md)
 
 ### Supplementary project-material
 #### FdF, wireframe
