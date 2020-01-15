@@ -21,7 +21,7 @@ Recommended watching: "Introduction to MinilibX" and "Introduction to events" on
 6. [How to use images](mlx-tutorial-images.md)
 
 ### Supplementary project-material
-### FdF, wireframe
+#### FdF, wireframe
 [https://youtu.be/KvSjJ-kdGio](https://youtu.be/KvSjJ-kdGio)
 
 #### Fractals
