@@ -16,6 +16,8 @@ int main()
 
 If you look closely, this will draw a white pixel at the very center of the window.
 
+![MLX tutorial pixel](images/tutorial-pixel.png)
+
 The main takeaway from this is how the color is determined by MLX. The man page explains that it takes 3 bytes to define a color with 16'777'216 shades.
 ```
 0x  FF FF FF
