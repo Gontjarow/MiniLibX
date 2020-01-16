@@ -136,3 +136,5 @@ Finally, you can call `mlx_put_image_to_window` when you're ready to display the
 ```
 mlx_put_image_to_window(mlx, win, image, 0, 0);
 ```
+
+\*: The endianness problem is avoided as long as the platform uses the ARGB color layout. There are a few, see [wiki](https://en.wikipedia.org/wiki/RGBA_color_model#Representation).
