@@ -36,11 +36,12 @@ The way I like to iterate this array when `pixel_bits == 32` is:
   - `y * line_bytes` lets us move up/down in **pixel** coordinates.
 - `x` is the X coordinate of the **window**.
   - `x == 0` is the first (left) pixel.
-  - `x * 4` lets us move left/right in **pixel** coordinates.
-  - Remember that **one pixel on screen** requires **4 bytes in memory**.
-  - Remember that `buffer` is a `char *`.
-    - When you increment it by **one**, you're moving forward **one byte** in memory.
-- `(y * line_byes) + (x * 4)` is the beginning of the data for that screen pixel.
+  - `x` lets us move left/right in **pixel** coordinates.
+- Remember that **one pixel on screen** requires **4 bytes in memory**.
+- Remember that `buffer` is a `char *`.
+  - When you increment it by **one**, you're moving forward **one byte** in memory.
+  - So the final offset should be multiplied by 4.
+- `((y * line_byes) + x) * 4` is the beginning of the data for that screen pixel.
 
 From here, the "proper" way to draw the image according to the [manual](mlx_new_image.md) is to:
 1. Check how many bits there are per pixel.
@@ -57,7 +58,7 @@ if (pixel_bits != 32)
 for(int y = 0; y < 360; ++y)
 for(int x = 0; x < 640; ++x)
 {
-    int pixel = (y * line_bytes) + (x * 4);
+    int pixel = ((y * line_bytes) + x) * 4;
 
     if (endian == 1)        // Most significant (Alpha) byte first
     {
