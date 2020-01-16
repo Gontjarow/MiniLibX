@@ -34,7 +34,7 @@ int main()
 
 This pointer is **very important**. You will need it for many other functions later. Generally speaking, you'll want to store all of your MLX and window pointers into a struct of some kind so you can pass them around to other functions when needed. In basic programs, you'll only need one MLX pointer and one window pointer. You may also create multiple windows.
 
-Next up we can already create our window, which will open as soon as we start waiting for events with `mlx_loop()` even though we haven't set up any events yet, but you can read the [mlx_loop man page](mlx_loop.md).
+Next up we can already create our window, which will open as soon as we start waiting for events with `mlx_loop()` even though we haven't set up any events yet, but you can read the [mlx_loop manual](mlx_loop.md).
 ```
 #include "mlx.h"
 
