@@ -47,6 +47,7 @@ From here, the "proper" way to draw the image according to the manual is to:
 2. Convert your color with `mlx_get_color_value` if necessary.
 3. Check whether the environment is little/big endian.
 4. Write your color value byte-by-byte into the pixel array, according to endianness.
+
 ```
 int color = 0xABCDEF;
 
@@ -114,6 +115,7 @@ However, there's a little shortcut you can use as long as `pixel_bits == 32`.
 2. Skip endian check, it should* be handled implicitly.
 3. Skip `mlx_get_color_value` since ARGB color uses 32 bits.
 4. Write your color value as integers.
+
 ```
 int *buffer = mlx_get_data_addr(image, &pixel_bits, &line_bytes, &endian);
 
