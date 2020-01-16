@@ -78,7 +78,7 @@ for(int x = 0; x < 640; ++x)
 ### I have no idea what I just read!
 You should read up on the underlying *binary format* for integers and *bitwise operators* in C. Here's a very brief summary of what happens above:
 
-Our color integer is 0xABCDEF or light blue. Here it is in **binary**, separated by bytes (big endian):
+Our color integer is 0xABCDEF or light blue. Here it is in binary, separated by bytes (big endian):
 ```
     Alpha    Red      Green    Blue
 0x  00       AB       CD       EF
@@ -87,7 +87,7 @@ bin 00000000 10101011 11001101 11101111
 
 Here's what happens when assigning green like so: `byte = (color >> 8) & 0xFF;`
 
-`>>` is the "right shift" operator. It moves bytes to the right by the specified amount. "New" bits on the left are padded with 0s.
+`>>` is the "right shift" operator. It moves bytes to the right by the specified amount. Bits that are moved past the end of the bitfield are discarded while "new" bits on the left are padded with 0s.
 ```
 color >> 8
              Alpha    Red      Green
@@ -95,7 +95,7 @@ color >> 8
 bin 00000000 00000000 10101011 11001101
 ```
 
-`&` is the "bitwise AND" operator. It compares two bitfields and returns a bitfield where 1 is placed where **both** bitfields had 1. Otherwise 0.
+`&` is the "bitwise AND" operator. It compares two bitfields and returns a bitfield where `1` is placed where **both** bitfields had `1`. Otherwise `0`.
 ```
 color        Alpha    Red      Green
 0x  00       00       AB       CD
