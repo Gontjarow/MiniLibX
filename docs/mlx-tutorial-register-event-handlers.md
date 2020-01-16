@@ -18,7 +18,7 @@ It's important to note that your event handlers should be registered before `mlx
 int main()
 {
     void *mlx = mlx_init();
-    void *win = mlx_new_window(mlx, 640, 360, "Tutorial Window - Draw Pixel");
+    void *win = mlx_new_window(mlx, 640, 360, "Tutorial Window - Registering Events");
 
     mlx_mouse_hook(win, &mouse_event, 0);
 
