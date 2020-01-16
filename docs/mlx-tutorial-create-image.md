@@ -75,7 +75,7 @@ for(int x = 0; x < 640; ++x)
     }
 }
 ```
-### I have no idea what I just read!
+### "I have no idea what I just read!"
 You should read up on the underlying *binary format* for integers and *bitwise operators* in C. Here's a very brief summary of what happens above:
 
 Our color integer is 0xABCDEF or light blue. Here it is in binary, separated by bytes (big endian):
@@ -112,11 +112,12 @@ result
 
 ```byte = 0xCD```
 
+### There is hope
 However, there's a little shortcut you can use as long as `pixel_bits == 32`.
 1. Check how many bits there are per pixel. (Optional if you know your supported platforms.)
 2. Skip endian check, it should* be handled implicitly.
 3. Skip `mlx_get_color_value` since ARGB color uses 32 bits.
-4. Write your color value as integers.
+4. Write your complete color value as an integer.
 
 ```
 int *buffer = mlx_get_data_addr(image, &pixel_bits, &line_bytes, &endian);
