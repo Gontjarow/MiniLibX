@@ -32,7 +32,7 @@ While filling the integer, make sure you avoid endian problems. Remember that th
 ### Additional notes (not in the manual)
 The fourth value mentioned in color management is the alpha (transparency) value. This is also in the 0-255 range, where 0 is fully opaque (visible) and 255 is fully transparent (invisible).
 
-MacOSX (for example) uses little-endian, meaning that the least significant byte is the first in memory. This means that if you are writing things into memory (such as [images](mlx_new_image.md)) byte by byte, you'll have to write them in this format:
+MacOSX (for example) uses little-endian, meaning that the least significant byte is the first in memory. This means that if you are writing things into memory (such as colors for [images](mlx_new_image.md)) byte by byte, you'll have to write them in this format:
 ```
 | B | G | R | A | Blue, Green, Red, Alpha
 +---+---+---+---+
