@@ -28,7 +28,7 @@ The `img_ptr` parameter specifies the image to use. The three next parameters sh
 
 `size_line` is the number of bytes used to store one line of the image in memory. This information is needed to move from one line to another in the image.
 
-`endian` tells you wether the pixel color in the image needs to be stored in little endian (`endian` == 0), or big endian (`endian` == 1).
+`endian` tells you wether the pixel color in the image needs to be stored in little endian `endian == 0`, or big endian `endian == 1`.
 
 `mlx_get_data_addr` returns a `char *` address that represents the begining of the memory area where the image is stored.
 
