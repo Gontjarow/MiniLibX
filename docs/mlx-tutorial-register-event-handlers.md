@@ -13,7 +13,7 @@ int mouse_event(int button, int x, int y, void *param)
 }
 ```
 
-It's important to note that your event handlers should be registered before `mlx_hook` because that function will never return. You can register new handlers and replace old ones after `mlx_loop` has started, as long as you have at least one handler active so your program can respond to actions.
+It's important to note that your event handlers should be registered before `mlx_hook` because that function will never return. (It is an infinite loop that just waits for events and calls the event handler if there is one.) You can register new handlers and replace old ones after `mlx_loop` has started, as long as you have at least one handler active so your program can respond to actions.
 ```
 int main()
 {
