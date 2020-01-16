@@ -26,7 +26,7 @@ char *buffer = mlx_get_data_addr(image, &pixel_bits, &line_bytes, &endian);
 
 ### How to draw pixels into the image?
 
-The pixel data is initialized to 0, meaning every pixel will be black without alpha.
+The pixel data is initialized to `0`, meaning every pixel will be black without alpha.
 
 The pixel data is a single array of `width * height * 4` bytes. For a 500x500 image, we would need 1'000'000 bytes or about 0.953 MB.
 
@@ -38,11 +38,11 @@ The way I like to iterate this array when `pixel_bits == 32` is:
   - `x == 0` is the first (left) pixel.
   - `x * 4` lets us move left/right in **pixel** coordinates.
   - Remember that **one pixel on screen** requires **4 bytes in memory**.
-  - Remember that `buffer` is a **char pointer**.
+  - Remember that `buffer` is a `char *`.
     - When you increment it by **one**, you're moving forward **one byte** in memory.
 - `(y * line_byes) + (x * 4)` is the beginning of the data for that screen pixel.
 
-From here, the "proper" way to draw the image according to the manual is to:
+From here, the "proper" way to draw the image according to the [manual](mlx_new_image.md) is to:
 1. Check how many bits there are per pixel.
 2. Convert your color with `mlx_get_color_value` if necessary.
 3. Check whether the environment is little/big endian.
@@ -57,19 +57,21 @@ if (pixel_bits != 32)
 for(int y = 0; y < 360; ++y)
 for(int x = 0; x < 640; ++x)
 {
+    int pixel = (y * line_bytes) + (x * 4);
+
     if (endian == 1)        // Most significant (Alpha) byte first
     {
-        buffer[(y * line_bytes) + (x * 4) + 0] = (color >> 24);
-        buffer[(y * line_bytes) + (x * 4) + 1] = (color >> 16) & 0xFF;
-        buffer[(y * line_bytes) + (x * 4) + 2] = (color >> 8) & 0xFF;
-        buffer[(y * line_bytes) + (x * 4) + 3] = (color) & 0xFF;
+        buffer[pixel + 0] = (color >> 24);
+        buffer[pixel + 1] = (color >> 16) & 0xFF;
+        buffer[pixel + 2] = (color >> 8) & 0xFF;
+        buffer[pixel + 3] = (color) & 0xFF;
     }
     else if (endian == 0)   // Least significant (Blue) byte first
     {
-        buffer[(y * line_bytes) + (x * 4) + 0] = (color) & 0xFF;
-        buffer[(y * line_bytes) + (x * 4) + 1] = (color >> 8) & 0xFF;
-        buffer[(y * line_bytes) + (x * 4) + 2] = (color >> 16) & 0xFF;
-        buffer[(y * line_bytes) + (x * 4) + 3] = (color >> 24);
+        buffer[pixel + 0] = (color) & 0xFF;
+        buffer[pixel + 1] = (color >> 8) & 0xFF;
+        buffer[pixel + 2] = (color >> 16) & 0xFF;
+        buffer[pixel + 3] = (color >> 24);
     }
 }
 ```
