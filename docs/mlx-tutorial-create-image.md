@@ -39,8 +39,7 @@ The way I like to iterate this array when `pixel_bits == 32` is:
   - `x` lets us move left/right in **pixel** coordinates.
 - Remember that **one pixel on screen** requires **4 bytes in memory**.
 - Remember that `buffer` is a `char *`.
-  - When you increment it by **one**, you're moving forward **one byte** in memory.
-  - So the final offset should be multiplied by 4.
+  - When you increment it by **one**, you're moving forward **one byte** in memory, so the final offset should be multiplied by `4`.
 - `((y * line_byes) + x) * 4` is the beginning of the data for that screen pixel.
 
 From here, the "proper" way to draw the image according to the [manual](mlx_new_image.md) is to:
