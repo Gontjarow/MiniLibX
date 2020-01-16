@@ -21,7 +21,7 @@ int main()
 }
 ```
 
-It's about time you learned the importance of structs. Let's define a simple structure for our whole program.
+It's about time you learned the importance of structs. Let's define a simple structure for our whole program. We can use this to hold both pointers grouped together and easily accessible.
 ```
 typedef struct  s_program
 {
@@ -30,7 +30,7 @@ typedef struct  s_program
 }               t_program;
 ```
 
-We can use this to hold both pointers grouped together and easily accessible. The value of `void *mlx` is copied into `tutorial.mlx` so that they both point to the same address in memory.
+When we assign the value of `void *mlx` to `tutorial.mlx`, the value of the pointer is copied so that they both point to the same address in memory.
 ```
 int main()
 {
@@ -52,8 +52,9 @@ Now, when `mouse_event` is called, you can typecast `param` to a type you know i
 int mouse_event(int button, int x, int y, void *param)
 {
     t_program *tutorial = param;
+    
     mlx_pixel_put(tutorial->mlx, tutorial->win, 640/2, 360/2, 0xFFFFFF);
+    
     return (1);
 }
 ```
-WIP
