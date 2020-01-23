@@ -31,15 +31,15 @@ The pixel data is initialized to `0`, meaning every pixel will be black without 
 The pixel data is a single array of `width * height * 4` bytes. For a 500x500 image, we would need 1'000'000 bytes or about 0.953 MB.
 
 The way I like to iterate this array when `pixel_bits == 32` is:
-- `y` is the Y coordinate of the **window**.
-  - `y == 0` is the first (top) pixel.
+- `y` is the Y coordinate in the **window**.
+  - `y == 0` is the first (top) pixel within the window.
   - `y * line_bytes` lets us move up/down in **pixel** coordinates.
-- `x` is the X coordinate of the **window**.
+- `x` is the X coordinate in the **window**.
   - `x == 0` is the first (left) pixel.
   - `x` lets us move left/right in **pixel** coordinates.
 - Remember that **one pixel on screen** requires **4 bytes in memory**.
 - Remember that `buffer` is a `char *`.
-  - When you increment it by **one**, you're moving forward **one byte** in memory, so the final offset should be multiplied by `4`.
+  - When you increment the pointer by one by **one**, you're moving forward **one byte** in memory, so the final offset should be multiplied by `4`.
 - `((y * line_byes) + x) * 4` is the beginning of the data for that screen pixel.
 
 From here, the "proper" way to draw the image according to the [manual](mlx_new_image.md) is to:
@@ -138,3 +138,10 @@ mlx_put_image_to_window(mlx, win, image, 0, 0);
 ```
 
 \*: The endianness problem is avoided as long as the platform uses the ARGB color layout. There are a few, see [wiki](https://en.wikipedia.org/wiki/RGBA_color_model#Representation).
+
+### Other important notes
+- It's dangerous to write pixel data without making sure your index is inside of the pixel array. Make sure to limit your maximum index, otherwise you may cause artifacts or freeze the whole computer. (It has happened on many occasions at our school.)
+- If you're working with positions relative to the window (like mouse position), make sure you check that the position is inside of the window.
+    - Otherwise you might write to negative indexes (which isn't a valid memory location) which won't show up on the screen
+    - Or you might wrap around the window. For example, in a `500,500` window, drawing a line from `400,50` to `800,50` would cause the line go into the right side and continue from the left side, on the next row of pixels.
+        - This is because the pixel data is a single-dimensional array. When X is greater than the width of the image, it will access the next line.
