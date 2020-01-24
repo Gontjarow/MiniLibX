@@ -9,6 +9,8 @@ int main()
     void *win = mlx_new_window(mlx, 640, 360, "Tutorial Window - Create Image");
 
     void *image = mlx_new_image(mlx, 640, 360);
+    
+    // The following code goes here.
 
     mlx_loop(mlx);
 }
