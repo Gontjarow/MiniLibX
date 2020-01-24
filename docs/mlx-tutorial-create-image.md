@@ -31,10 +31,10 @@ The pixel data is initialized to `0`, meaning every pixel will be black without 
 The pixel data is a single array of `width * height * 4` bytes. For a 500x500 image, we would need 1'000'000 bytes or about 0.953 MB.
 
 The way I like to iterate this array when `pixel_bits == 32` is:
-- `y` is the Y coordinate in the **window**.
-  - `y == 0` is the first (top) pixel within the window.
+- `y` is the Y coordinate in the **image**.
+  - `y == 0` is the first (top) pixel within the image.
   - `y * line_bytes` lets us move up/down in **pixel** coordinates.
-- `x` is the X coordinate in the **window**.
+- `x` is the X coordinate in the **image**.
   - `x == 0` is the first (left) pixel.
   - `x` lets us move left/right in **pixel** coordinates.
 - Remember that **one pixel on screen** requires **4 bytes in memory**.
@@ -144,6 +144,7 @@ One really important change you have to make is divide `line_bytes` by 4 and not
 \*: The endianness problem is avoided as long as the platform uses the ARGB color layout. There are a few, see [wiki](https://en.wikipedia.org/wiki/RGBA_color_model#Representation).
 
 ### Other important notes
+- Your image can be any size, even bigger than the window you're going to display it in.
 - It's dangerous to write pixel data without making sure your index is inside of the pixel array. Make sure to limit your maximum index, otherwise you may cause artifacts or freeze the whole computer. (It has happened on many occasions at our school.)
 - If you're working with positions relative to the window (like mouse position), make sure you check that the position is inside of the window.
     - Otherwise you might write to negative indexes (which isn't a valid memory location) which won't show up on the screen
