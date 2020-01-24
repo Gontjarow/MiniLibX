@@ -108,7 +108,7 @@ color        Alpha    Red      Green
 bin 00000000 00000000 10101011 11001101
 
 AND
-0x 00       00       00       FF
+0x  00       00       00       FF
 bin 00000000 00000000 00000000 11111111
 
 result
@@ -127,6 +127,7 @@ However, there's a little shortcut you can use as long as `pixel_bits == 32`.
 
 ```
 int *buffer = mlx_get_data_addr(image, &pixel_bits, &line_bytes, &endian);
+line_bytes /= 4;
 
 int color = 0xABCDEF;
 
@@ -137,6 +138,8 @@ for(int x = 0; x < 640; ++x)
 }
 ```
 The biggest difference here is that the address from mlx_get_data_addr is typecast to an `int *` instead. When you increment it by one, you're moving forward **4 bytes** in memory. Also, because the pointer now points to 4 bytes, you can assign the entire color in one go.
+
+One really important change you have to make is divide `line_bytes` by 4 and not multiply `x` by 4, because otherwise you would be skipping a lot of pixels. If you go this route, you should rename `line_bytes` to something more accurate like `line_pixels`.
 
 \*: The endianness problem is avoided as long as the platform uses the ARGB color layout. There are a few, see [wiki](https://en.wikipedia.org/wiki/RGBA_color_model#Representation).
 
