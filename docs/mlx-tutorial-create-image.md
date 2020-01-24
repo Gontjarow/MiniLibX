@@ -1,4 +1,4 @@
-### How to create an image in MLX? (WIP, code hasn't been checked)
+### How to create an image in MLX?
 Setting up an image "buffer" is similar to setting up MLX and window. First, you need to allocate memory for the image with `mlx_new_image`.
 ```
 #include "mlx.h"
@@ -8,7 +8,7 @@ int main()
     void *mlx = mlx_init();
     void *win = mlx_new_window(mlx, 640, 360, "Tutorial Window - Create Image");
 
-    void *image = mlx_new_image(void *mlx, 640, 360);
+    void *image = mlx_new_image(mlx, 640, 360);
 
     mlx_loop(mlx);
 }
@@ -40,7 +40,7 @@ The way I like to iterate this array when `pixel_bits == 32` is:
 - Remember that **one pixel on screen** requires **4 bytes in memory**.
 - Remember that `buffer` is a `char *`.
   - When you increment the pointer by one by **one**, you're moving forward **one byte** in memory, so the final offset should be multiplied by `4`.
-- `((y * line_bytes) + (x * 4))` is the beginning of the data for that screen pixel.
+- `(y * line_bytes) + (x * 4)` is the beginning of the data for that screen pixel.
 
 From here, the "proper" way to draw the image according to the [manual](mlx_new_image.md) is to:
 1. Check how many bits there are per pixel.
@@ -57,7 +57,7 @@ if (pixel_bits != 32)
 for(int y = 0; y < 360; ++y)
 for(int x = 0; x < 640; ++x)
 {
-    int pixel = ((y * line_bytes) + x) * 4;
+    int pixel = (y * line_bytes) + (x * 4);
 
     if (endian == 1)        // Most significant (Alpha) byte first
     {
@@ -75,6 +75,12 @@ for(int x = 0; x < 640; ++x)
     }
 }
 ```
+
+Finally, you can call `mlx_put_image_to_window` when you're ready to display the image.
+```
+mlx_put_image_to_window(mlx, win, image, 0, 0);
+```
+![MLX tutorial image](images/tutorial-image.png)
 ### "I have no idea what I just read!"
 You should read up on the underlying *binary format* for integers and *bitwise operators* in C. Here's a very brief summary of what happens above:
 
@@ -132,16 +138,12 @@ for(int x = 0; x < 640; ++x)
 ```
 The biggest difference here is that the address from mlx_get_data_addr is typecast to an `int *` instead. When you increment it by one, you're moving forward **4 bytes** in memory. Also, because the pointer now points to 4 bytes, you can assign the entire color in one go.
 
-Finally, you can call `mlx_put_image_to_window` when you're ready to display the image.
-```
-mlx_put_image_to_window(mlx, win, image, 0, 0);
-```
-
 \*: The endianness problem is avoided as long as the platform uses the ARGB color layout. There are a few, see [wiki](https://en.wikipedia.org/wiki/RGBA_color_model#Representation).
 
 ### Other important notes
 - It's dangerous to write pixel data without making sure your index is inside of the pixel array. Make sure to limit your maximum index, otherwise you may cause artifacts or freeze the whole computer. (It has happened on many occasions at our school.)
 - If you're working with positions relative to the window (like mouse position), make sure you check that the position is inside of the window.
     - Otherwise you might write to negative indexes (which isn't a valid memory location) which won't show up on the screen
-    - Or you might wrap around the window. For example, in a `500,500` window, drawing a line from `400,50` to `800,50` would cause the line go into the right side and continue from the left side, on the next row of pixels.
+    - Or you might wrap around the window. For example, in a `640,320` window, drawing a line from `320,180` to `1200,180` would cause the line go into the right side and continue from the left side, on the next row of pixels.
+        ![MLX tutorial image error](images/tutorial-image-error.png)
         - This is because the pixel data is a single-dimensional array. When X is greater than the width of the image, it will access the next line.
