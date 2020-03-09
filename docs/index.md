@@ -33,14 +33,17 @@ There's also no guarantee that the information provided here is 100% correct. I 
 
 ### Supplementary project-material
 #### FdF, wireframe
-[https://youtu.be/KvSjJ-kdGio](https://youtu.be/KvSjJ-kdGio)
-[https://youtu.be/t7Ztio8cwqM](https://youtu.be/t7Ztio8cwqM)
+[Isometric coordinates](https://youtu.be/KvSjJ-kdGio)
+
+[Triangle rasterization (rendering) explained](https://youtu.be/t7Ztio8cwqM)
+
+[Algorithm: Triangle fill/rasterization](http://www.sunshine2k.de/coding/java/TriangleRasterization/TriangleRasterization.html)
 
 #### Fractals
-[https://youtu.be/FFftmWSzgmk](https://youtu.be/FFftmWSzgmk)
+[Video: Introduction to Mandelbrot, math explained](https://youtu.be/MwjsO6aniig)
 
-[https://youtu.be/MwjsO6aniig](https://youtu.be/MwjsO6aniig)
+[Video: Mandelbrot behavior visualized](https://youtu.be/FFftmWSzgmk)
 
-[http://warp.povusers.org/Mandelbrot/](http://warp.povusers.org/Mandelbrot/)
+[Practical example 1: Mandelbrot/Julia](http://warp.povusers.org/Mandelbrot/)
 
-[https://lodev.org/cgtutor/juliamandelbrot.html](https://lodev.org/cgtutor/juliamandelbrot.html)
+[Practical example 2: Mandelbrot/Julia](https://lodev.org/cgtutor/juliamandelbrot.html)
